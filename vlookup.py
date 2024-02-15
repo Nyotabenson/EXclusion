@@ -18,27 +18,27 @@ if df is not None:
 
 
 
-#Operation
-# Select rows where value in column1 is not in column2
-filtered_df = df1[~df1[0].isin(df1[1])]
+    #Operation
+    # Select rows where value in column1 is not in column2
+    filtered_df = df1[~df1[0].isin(df1[1])]
 
 
-filtered_df = filtered_df.drop(filtered_df.columns[1:], axis=1)
+    filtered_df = filtered_df.drop(filtered_df.columns[1:], axis=1)
 
-# Print the result
-st.write(len(filtered_df), "Entries")    
+    # Print the result
+    st.write(len(filtered_df), "Entries")    
 
-st.write(filtered_df)
-
-
-
-csv_string = filtered_df.to_csv(index=False, header=None)
-csv_bytes = csv_string.encode()
+    st.write(filtered_df)
 
 
-st.download_button(
-    label="Download data",
-    data=csv_bytes,
-    file_name="data.csv",
-    mime="text/csv"
-)
+
+    csv_string = filtered_df.to_csv(index=False, header=None)
+    csv_bytes = csv_string.encode()
+
+
+    st.download_button(
+        label="Download data",
+        data=csv_bytes,
+        file_name="data.csv",
+        mime="text/csv"
+    )
